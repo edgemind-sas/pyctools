@@ -30,7 +30,7 @@ class InstantLinearRange(pydantic.BaseModel):
 class MCSimulationParam(pydantic.BaseModel):
     nb_runs: int = pydantic.Field(
         1, description="Number of simulation to run")
-    schedule: typing.List[InstantLinearRange | float] = pydantic.Field(
+    schedule: typing.List[typing.Union[InstantLinearRange,float]] = pydantic.Field(
         [100], description="Measure instant")
     time_unit: str = pydantic.Field(
         None, description="Simulation time unit")
